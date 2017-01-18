@@ -19,7 +19,7 @@ defmodule Chatter.Mixfile do
   def application do
     [mod: {Chatter, []},
      applications: [:phoenix, :phoenix_pubsub, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex]]
+                    :phoenix_ecto, :ecto, :postgrex, :comeonin]]
   end
 
   # Specifies which paths to compile per environment.
@@ -33,9 +33,13 @@ defmodule Chatter.Mixfile do
     [{:phoenix, "~> 1.2.1"},
      {:phoenix_pubsub, "~> 1.0"},
      {:phoenix_ecto, "~> 3.0"},
+     {:ecto, "~> 2.0.6"},
      {:postgrex, ">= 0.0.0"},
      {:gettext, "~> 0.11"},
      {:cors_plug, "~> 1.1"},
+     {:comeonin, "~> 2.4"},
+     {:guardian, "~> 0.10.0"},
+     {:ja_serializer, "~> 0.11.2"},
      {:cowboy, "~> 1.0"}]
   end
 

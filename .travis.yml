@@ -1,0 +1,17 @@
+language: elixir
+elixir:
+- 1.2
+otp_release:
+- 18.2
+sudo: false
+addons:
+  postgresql: '9.4'
+before_script:
+- psql -c 'create database chatter_test;' -U postgres
+deploy:
+  provider: heroku
+  api_key:
+    secure: NbY/DMHuHYG8/QJuh/4s4+TS/9wnpoanl7gOT2ka0+bmUJWlSNwYPeE73B2JKp8ssyzmxzdM0DcFJSV+CxMYD/iACHe6Nl5JcginrsxiyoIslqXLALn+RgXavmEQsViBmo2MwqP8mnp65A5RggMBiJ9OZqgY3+faBv1DjRluwUI25w6vUUVhEPQRRJ/ovrxDHRmfRwY13RTIVUdkLRPgWXxPncJP7CMQVJh90VzVouIb+tDqul2TCxTt+7neQNZnOc4YDeJZG1BBkHGRaL0zgN1XmkZQrReVkObRIeLI2K/tLjPl12pSmTc7rO+WnbjmB5hb1zQoNqKX/y1tvIdYJwJewYiQlZOtbelhCXHXrW5xwq0LpiyzcK5LcBIkrgpF66F60l9ION9nGBU98EnG+o1TlrcwrkMTc723Z8Plyhfvi7y8fYKto6pCQf8tbIPUZ08LTVpWgbYPtECnzw8hEPphgHhKvgR3TQ54ObKDtaHvU9R9ym0v5DKqDxnDD6JJLjHufqmw4v3ConGqGig09TwLmMZGIQppY8LJ2q4G/q0MkwW03Enz4aVQ7mx0xg1ZyQHS8d8vup6Wj2diIvWtheGVAmS7tJmVWP6krR3OqBpL/4z+LL3Okrio3iY92joRdJ6MFyUY7oiJPbXAJTJuy6I/TVuYH/cp6LF1RUGmtUA=
+  app: blooming-plains-49428
+  on:
+    repo: steveszc/chatter-api
