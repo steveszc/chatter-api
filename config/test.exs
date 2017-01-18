@@ -12,8 +12,9 @@ config :logger, level: :warn
 # Configure your database
 config :chatter, Chatter.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
-  database: "chatter_test",
-  hostname: "localhost",
+  username: System.get_env("DOCKERDB_ENV_POSTGRESQL_USER"),
+  password: System.get_env("DOCKERDB_ENV_POSTGRESQL_PASS"),
+  database: System.get_env("DOCKERDB_ENV_POSTGRESQL_DB_TEST"),
+  hostname: System.get_env("DOCKERDB_PORT_5432_TCP_ADDR"),
+  port: System.get_env("DOCKERDB_PORT_5432_TCP_PORT"),
   pool: Ecto.Adapters.SQL.Sandbox
